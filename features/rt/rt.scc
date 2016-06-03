@@ -19,6 +19,7 @@ patch sched-provide-a-tsk_nr_cpus_allowed-helper.patch
 patch sc16is7xx_Drop_bogus_use_of_IRQF_ONESHOT.patch
 patch crypto-ccp-remove-rwlocks_types.h.patch
 patch infiniband-ulp-ipoib-remove-pkey_mutex.patch
+patch sched-preempt-Fix-preempt_count-manipulations.patch
 
 # Those two should vanish soon (not use PIT during bootup)
 patch at91_dont_enable_disable_clock.patch
@@ -73,6 +74,7 @@ patch kernel-SRCU-provide-a-static-initializer.patch
 ############################################################
 # Stuff which should go upstream ASAP
 ############################################################
+patch trace-correct-off-by-one-while-recording-the-trace-e.patch
 
 # SCHED BLOCK/WQ
 patch block-shorten-interrupt-disabled-regions.patch
@@ -180,6 +182,7 @@ patch preempt-nort-rt-variants.patch
 # local locks & migrate disable
 patch introduce_migrate_disable_cpu_light.patch
 patch rt-local-irq-lock.patch
+patch locallock-add-local_lock_on.patch
 
 # ANNOTATE local_irq_disable sites
 patch ata-disable-interrupts-if-non-rt.patch
@@ -220,6 +223,7 @@ patch mm-page_alloc-reduce-lock-sections-further.patch
 
 # MM SWAP
 patch mm-convert-swap-to-percpu-locked.patch
+patch mm-perform-lru_add_drain_all-remotely.patch
 
 # MM vmstat
 patch mm-make-vmstat-rt-aware.patch
@@ -313,6 +317,7 @@ patch kernel-migrate_disable-do-fastpath-in-atomic-irqs-of.patch
 patch irq-allow-disabling-of-softirq-processing-in-irq-thread-context.patch
 patch softirq-split-timer-softirqs-out-of-ksoftirqd.patch
 patch rtmutex-trylock-is-okay-on-RT.patch
+patch kernel-rtmutex-only-warn-once-on-a-try-lock-from-bad.patch
 
 # RAID5
 patch md-raid5-percpu-handling-rt-aware.patch
@@ -442,6 +447,7 @@ patch snd-pcm-fix-snd_pcm_stream_lock-irqs_disabled-splats.patch
 
 # CONSOLE. NEEDS more thought !!!
 patch printk-rt-aware.patch
+patch kernel-printk-Don-t-try-to-print-from-IRQ-NMI-region.patch
 patch HACK-printk-drop-the-logbuf_lock-more-often.patch
 
 # POWERC
@@ -549,6 +555,7 @@ patch preempt-lazy-support.patch
 patch preempt-lazy-check-preempt_schedule.patch
 patch x86-preempt-lazy.patch
 patch arm-preempt-lazy-support.patch
+patch arm-lazy-preempt-correct-resched-condition.patch
 patch powerpc-preempt-lazy-support.patch
 patch arch-arm64-Add-lazy-preempt-support.patch
 patch arm-arm64-lazy-preempt-add-TIF_NEED_RESCHED_LAZY-to-.patch
